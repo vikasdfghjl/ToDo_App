@@ -12,9 +12,9 @@ const app = express();
 
 app.set("view engine", "ejs")
 
-// app.get('/', (req, res) => {
-//     res.send("Hello Vikas")
-// })
+app.get('/', (req, res) => {
+    res.send("Hello Vikas")
+})
 
 
 //middlewares
@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 
-app.use('/', require('./routes/todoRoutes'))
+app.use('/api', require('./routes/todoRoutes'))
 
 app.listen(PORT, () => {
     console.log(`Server is Listening on Port ${PORT}`);
