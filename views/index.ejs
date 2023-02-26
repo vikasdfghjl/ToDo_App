@@ -7,7 +7,7 @@
   </nav>
 
   <div class="container mt-5">
-    <form action="/api/to-do" method="POST" class="d-flex">
+    <form action="/" method="POST" class="d-flex">
       <input class="form-control" type="text" placeholder="What are You up To !!!" name="todo">
       <button class="btn btn-lg btn-outline-success mx-5" type="submit">Add </button>
     </form>
@@ -18,7 +18,7 @@
 
       <li class="list-group-item">
         <%= todos.todo%>
-          <a href="/api/delete/to-do/<%= todos._id %>" class="btn btn-sm btn-outline-danger">Delete</a>
+          <a href="/delete/to-do/<%= todos._id %>" class="btn btn-sm btn-outline-danger">Delete</a>
 
       </li>
 
