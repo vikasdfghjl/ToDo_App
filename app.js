@@ -14,7 +14,7 @@ const app = express();
 app.set("view engine", "ejs")
 
 app.get('/', (req, res) => {
-    res.send("To-Do App | Vikas")
+    res.send("To-Do App | Vikas Singh")
     //res.sendFile(path.join(__dirname + "/Home.html"))
 })
 
