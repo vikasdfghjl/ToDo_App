@@ -11,7 +11,7 @@ const postToDo = asyncHandler(async (req, res) => {
     const { todo } = req.body;
     const newtoDo = ToDoModel({ todo })
     if (todo == "") {
-        res.redirect('/')
+        res.redirect('/api/to-do')
     }
 
     //save the todo
@@ -20,7 +20,7 @@ const postToDo = asyncHandler(async (req, res) => {
     newtoDo.save()
         .then(() => {
             console.log("Successfully added TO-DO")
-            res.redirect("/")
+            res.redirect("/api/to-do")
         })
 
         .catch((err) => console.log(err))
@@ -37,7 +37,7 @@ const deleteToDo = asyncHandler(async (req, res) => {
 
         .then(() => {
             console.log("Deleted To-Do Successfully")
-            res.redirect("/")
+            res.redirect("/api/to-do")
         })
         .catch((err) => {
             console.log(err)
@@ -47,13 +47,13 @@ const deleteToDo = asyncHandler(async (req, res) => {
 // @desc Get All ToDos
 // @route GET /api/to-do
 // @access Private
-/* const getToDo = asyncHandler(async (req, res) => {
+const getToDo = asyncHandler(async (req, res) => {
     const allToDo = await ToDoModel.find()
 
     res.render("index", { todo: allToDo })
 
 
-}) */
+})
 
 
-module.exports = { postToDo, deleteToDo }
+module.exports = { postToDo, getToDo, deleteToDo }

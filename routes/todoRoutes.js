@@ -1,12 +1,12 @@
 const express = require("express")
 const router = express.Router()
 
-const { postToDo, deleteToDo } = require('../controller/todoController')
+const { postToDo, getToDo, deleteToDo } = require('../controller/todoController')
 
 
-router.post('/', postToDo)
+router.post('/to-do', postToDo)
 
-router.get('/', getToDo)
+router.get('/to-do', getToDo)
 
 router.get("/delete/to-do/:_id", deleteToDo)
 
