@@ -14,11 +14,14 @@ const app = express();
 
 app.set("view engine", "ejs")
 
+app.use('/', require('./routes/todoRoutes'))
+
 app.get('/', async (req, res) => {
     //res.send("Hello Vikas")
     const allToDo = await ToDoModel.find()
 
     res.render("index", { todo: allToDo })
+    
 })
 
 
@@ -27,7 +30,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 
-app.use('/', require('./routes/todoRoutes'))
 
 app.listen(PORT, () => {
     console.log(`Server is Listening on Port ${PORT}`);
